@@ -31,7 +31,7 @@ QNow-Flutter-IEEEiNTUition-TeamJustKidding/
 ├── pubspec.yaml
 ├── README.md
 └── other project files...
-`
+```
 
 # QNow Flutter App
 
