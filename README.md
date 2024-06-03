@@ -50,15 +50,19 @@ This is the QNow Flutter application developed by Team Just Kidding for the IEEE
 
 ```sh
 git clone https://github.com/Nimastic/QNow-Flutter-IEEEiNTUition-TeamJustKidding.git
+```
 
 ```sh
 cd QNow-Flutter-IEEEiNTUition-TeamJustKidding
+```
 
 ```sh
 flutter pub get
+```
 
 ```sh
 flutter run
+```
 
 
 
