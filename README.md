@@ -16,6 +16,8 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ```bash
+Project Directory
+
 QNow-Flutter-IEEEiNTUition-TeamJustKidding/
 ├── assets/
 │   ├── images/
@@ -29,8 +31,37 @@ QNow-Flutter-IEEEiNTUition-TeamJustKidding/
 ├── pubspec.yaml
 ├── README.md
 └── other project files...
-
 `
+
+# QNow Flutter App
+
+This is the QNow Flutter application developed by Team Just Kidding for the IEEE iNTUition competition.
+
+## Getting Started
+
+### Prerequisites
+
+- Flutter SDK
+- Dart SDK
+
+### Installation
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/Nimastic/QNow-Flutter-IEEEiNTUition-TeamJustKidding.git
+
+```sh
+cd QNow-Flutter-IEEEiNTUition-TeamJustKidding
+
+```sh
+flutter pub get
+
+```sh
+flutter run
+
+
+
 
 
 
