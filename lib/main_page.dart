@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
           ),
         ),
         title: Text(
-          'QuickQuack',
+          'QNow',
           style: TextStyle(color: Colors.pink),
         ),
         actions: [
@@ -70,9 +70,12 @@ class MainPage extends StatelessWidget {
                     waitingTime: '15 mins',
                     reviews: '220 Reviews',
                     closingTime: 'Closes at 12pm',
-                    onTap: () {
-                      // Handle clinic tap
-                    },
+                    estimatedConsultationCost: '\$15',
+                    estimatedMedicationCost: '\$20',
+                    doctors: [
+                      Doctor(name: 'Jennifer SY Yeong', description: 'Dr Yeong is a great doctor. He has been my family doctor for more than 15 years. Very approachable and down to earth doctor.'),
+                      Doctor(name: 'Serene Neo', description: 'A humorous, friendly and experienced doctor!'),
+                    ],
                   ),
                   ClinicCard(
                     clinicName: 'I-Health Medical Clinic',
@@ -80,9 +83,11 @@ class MainPage extends StatelessWidget {
                     waitingTime: '35 mins',
                     reviews: '20 Reviews',
                     closingTime: 'Closes at 1pm',
-                    onTap: () {
-                      // Handle clinic tap
-                    },
+                    estimatedConsultationCost: '\$20',
+                    estimatedMedicationCost: '\$25',
+                    doctors: [
+                      Doctor(name: 'John Doe', description: 'An experienced doctor with a friendly demeanor.'),
+                    ],
                   ),
                   ClinicCard(
                     clinicName: '338 Family Clinic',
@@ -90,9 +95,11 @@ class MainPage extends StatelessWidget {
                     waitingTime: '70 mins',
                     reviews: '100 Reviews',
                     closingTime: 'Closes at 12pm',
-                    onTap: () {
-                      // Handle clinic tap
-                    },
+                    estimatedConsultationCost: '\$18',
+                    estimatedMedicationCost: '\$22',
+                    doctors: [
+                      Doctor(name: 'Jane Smith', description: 'A dedicated doctor with a patient-centric approach.'),
+                    ],
                   ),
                 ],
               ),
@@ -133,7 +140,9 @@ class ClinicCard extends StatelessWidget {
   final String waitingTime;
   final String reviews;
   final String closingTime;
-  final VoidCallback onTap;
+  final String estimatedConsultationCost;
+  final String estimatedMedicationCost;
+  final List<Doctor> doctors;
 
   const ClinicCard({
     Key? key,
@@ -142,14 +151,29 @@ class ClinicCard extends StatelessWidget {
     required this.waitingTime,
     required this.reviews,
     required this.closingTime,
-    required this.onTap,
+    required this.estimatedConsultationCost,
+    required this.estimatedMedicationCost,
+    required this.doctors,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        onTap: onTap,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ClinicDetailPage(
+                clinicName: clinicName,
+                address: address,
+                estimatedConsultationCost: estimatedConsultationCost,
+                estimatedMedicationCost: estimatedMedicationCost,
+                doctors: doctors,
+              ),
+            ),
+          );
+        },
         leading: CircleAvatar(
           backgroundImage: AssetImage('assets/images/clinic_image.png'), // Replace with actual clinic image path
         ),
@@ -170,6 +194,74 @@ class ClinicCard extends StatelessWidget {
           ],
         ),
         trailing: Text(waitingTime),
+      ),
+    );
+  }
+}
+
+class Doctor {
+  final String name;
+  final String description;
+
+  Doctor({required this.name, required this.description});
+}
+
+class ClinicDetailPage extends StatelessWidget {
+  final String clinicName;
+  final String address;
+  final String estimatedConsultationCost;
+  final String estimatedMedicationCost;
+  final List<Doctor> doctors;
+
+  const ClinicDetailPage({
+    Key? key,
+    required this.clinicName,
+    required this.address,
+    required this.estimatedConsultationCost,
+    required this.estimatedMedicationCost,
+    required this.doctors,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(clinicName),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              clinicName,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(address),
+            SizedBox(height: 8),
+            Text('Estimated Consultation Cost: $estimatedConsultationCost'),
+            Text('Estimated Medication Cost: $estimatedMedicationCost'),
+            SizedBox(height: 16),
+            Text(
+              'Available Doctors:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Expanded(
+              child: ListView.builder(
+                itemCount: doctors.length,
+                itemBuilder: (context, index) {
+                  final doctor = doctors[index];
+                  return ListTile(
+                    title: Text(doctor.name),
+                    subtitle: Text(doctor.description),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

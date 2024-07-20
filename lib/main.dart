@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'QuickQuack',
+      title: 'QNow',
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
@@ -40,7 +40,7 @@ class LoadingPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                'QuickQuack',
+                'QNow',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
