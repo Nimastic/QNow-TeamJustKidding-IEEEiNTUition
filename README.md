@@ -67,6 +67,14 @@ flutter run
 https://devpost.com/software/asdf-5nl32r
 https://www.figma.com/proto/azoniMGECZXNPhSZLCIG2q/intuition?scaling=min-zoom&page-id=0%3A1&starting-point-node-id=4%3A7&node-id=4-7
 
+## Screenshots
+
+<p align="center">
+  <img src="https://github.com/Nimastic/QNow-TeamJustKidding-IEEEiNTUition/blob/main/img/Screenshot1.png" alt="Screenshot 1" width="300"/>
+  <img src="https://github.com/Nimastic/QNow-TeamJustKidding-IEEEiNTUition/blob/main/img/Screenshot2.png" alt="Screenshot 2" width="300"/>
+  <img src="https://github.com/Nimastic/QNow-TeamJustKidding-IEEEiNTUition/blob/main/img/Screenshot3.png" alt="Screenshot 3" width="300"/>
+</p>
+
 
 
 
